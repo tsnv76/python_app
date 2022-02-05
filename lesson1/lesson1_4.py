@@ -7,3 +7,4 @@ words = ['разработка', 'администрирование', 'protocol
 
 for item in words:
     print(word_encoding_decoding(item))
+

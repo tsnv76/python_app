@@ -14,3 +14,4 @@ words_utf8 = ['\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430',
 print('---------- Преобразованные в формат Unicode -----------')
 for item in words_utf8:
     print(type_str(item))
+

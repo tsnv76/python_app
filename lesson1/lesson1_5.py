@@ -17,3 +17,4 @@ args = [['ping', param, '2', 'yandex.ru'],
 for item in args:
     print(f'Пингуем ресурс {item[3]}. Преобразовываем результаты из байтовового в строковый тип')
     f_ping(item)
+

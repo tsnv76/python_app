@@ -20,3 +20,4 @@ print('Кодировка: ', encoding)
 with open(file_name, encoding=encoding) as f_n:
     for el_str in f_n:
         print(el_str, end='')
+

@@ -11,3 +11,4 @@ words = ['attribute', 'класс', 'функция', 'type']
 
 for item in words:
     words_encoding(item)
+

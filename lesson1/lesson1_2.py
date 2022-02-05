@@ -9,3 +9,4 @@ for item in words:
     except Exception as e:
         print(f'ОШИБКА! Слово "{item}" невозможно записать в байтовом типе: {e}')
     # print(f'Содержимое -> {'item}, lлина строки = {len(item)},  тип данных -> {type(item)}\n')
+
