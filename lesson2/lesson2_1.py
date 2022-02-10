@@ -1,11 +1,13 @@
 import csv
 import re
 
+from chardet import detect
+
 
 def write_to_csv(file, data):
-    with open(file, 'w', encoding='utf-8') as f_n:
-        f_n_writer = csv.writer(f_n)
-        f_n_writer.writerows(f_n_writer)
+    with open(file, 'w', encoding='utf-8') as f_w:
+        f_n_writer = csv.writer(f_w)
+        f_n_writer.writerows(data)
 
 
 def get_data(lst):
@@ -15,19 +17,23 @@ def get_data(lst):
     os_type_list = []
     main_data = [['Изготовитель системы', 'Название ОС', 'Код продукта', 'Тип системы']]
     for file in lst:
-        datafile = open(file)
-        for row in datafile:
-            row = row.rstrip()
-            i = 0
-            if re.match('Изготовитель системы', row):
-                os_prod_list.append(re.search(r'(Изготовитель системы).\s*(.*)', row).group(2))
-                i += 1
-            elif re.match('Название ОС', row):
-                os_name_list.append(re.search(r'(Название ОС).\s*(.*)', row).group(2))
-            elif re.match('Код продукта', row):
-                os_code_list.append(re.search(r'(Код продукта).\s*(.*)', row).group(2))
-            elif re.match('Тип системы', row):
-                os_type_list.append(re.search(r'(Тип системы).\s*(.*)', row).group(2))
+        with open(file, 'rb') as f:
+            content = f.read()
+            encoding = detect(content)['encoding']
+
+        with open(file, encoding=encoding) as f_n:
+            for row in f_n:
+                row = row.rstrip()
+                i = 0
+                if re.match('Изготовитель системы', row):
+                    os_prod_list.append(re.search(r'(Изготовитель системы).\s*(.*)', row).group(2))
+                    i += 1
+                elif re.match('Название ОС', row):
+                    os_name_list.append(re.search(r'(Название ОС).\s*(.*)', row).group(2))
+                elif re.match('Код продукта', row):
+                    os_code_list.append(re.search(r'(Код продукта).\s*(.*)', row).group(2))
+                elif re.match('Тип системы', row):
+                    os_type_list.append(re.search(r'(Тип системы).\s*(.*)', row).group(2))
 
     for k in range(len(lst)):
         main_data.append([
@@ -45,3 +51,4 @@ if __name__ == "__main__":
 
     with open('new_file.csv', encoding='utf-8') as f_n:
         print(f_n.read())
+
