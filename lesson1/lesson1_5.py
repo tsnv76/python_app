@@ -1,12 +1,12 @@
 import platform
 import subprocess
-import chardet
+from chardet import detect
 
 
 def f_ping(item):
     result = subprocess.Popen(item, stdout=subprocess.PIPE)
     for line in result.stdout:
-        result = chardet.detect(line)
+        result = detect(line)
         line = line.decode(result['encoding']).encode('utf-8')
         print(line.decode('utf-8'))
 
