@@ -5,8 +5,7 @@ import re
 def write_to_csv(file, data):
     with open(file, 'w', encoding='utf-8') as f_n:
         f_n_writer = csv.writer(f_n)
-        for item in data:
-            f_n_writer.writerow(item)
+        f_n_writer.writerows(f_n_writer)
 
 
 def get_data(lst):
