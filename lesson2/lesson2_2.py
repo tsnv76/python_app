@@ -21,3 +21,4 @@ if __name__ == "__main__":
     write_order_to_json('Процессор', 20, 7000, 'Bern', '22.01.2022')
     write_order_to_json('Оперативная память', 15, 2500, 'Ostin', '11.02.2022')
     write_order_to_json('Жесткий диск', 100, 1500, 'Garry', '20.01.2022')
+

@@ -23,3 +23,4 @@ if __name__ == "__main__":
     }
 
     write_dict_to_yaml(my_dict, 'file.yaml')
+
