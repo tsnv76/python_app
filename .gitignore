@@ -2,3 +2,5 @@
 .idea
 env
 /example/
+/__pycache__/
+
